@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div>
+        <div class="card bg-dark text-white">
+            <img src="{{ song.song_image.url }}" class="card-img" alt="..." width="350" height="600">
+            <div class="card-img-top">
+              <h5 class="card-title" style="margin-left: 3%;">{{ song.song_title }}</h5>
+              <h2 class="card-title">{{ song.song_author }}</h2>
+              <audio controls>
+                <source src="{{ song.audio.url }}" type="audio/mpeg">
+                <source src="myAudio.ogg" type="audio/ogg">
+                <p>Your browser doesn't support HTML5 audio. Here is
+                   a <a href="myAudio.mp3">link to the audio</a> instead.</p>
+              </audio>
+            </div>
+            <a  href="{% url 'create' %}" >upload againa</a>
+            <a href="{% url 'logout' %}"  >logout</a>
+          </div>
+    </div>
+    
+{% endblock content %}
+    

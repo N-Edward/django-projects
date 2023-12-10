@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    body{
+        background-color: crimson;
+    }
+</style>
+<h1><a href="{% url 'image-upload' %}">uploda</a></h1>
+    <div class="container">
+        {% for item in items %}
+            <h1>{{ item.title}}</h1>
+            <h6>Released on : {{ item.title_upload_date|date:"F d, Y" }}</h6>
+            <img src="{{ item.movie_cover.url }}" style="height: 400px;">
+            <p style="margin: 2%; border:solid;">{{ item.description }}</p>
+            <button ><a href="{% url 'rate' item.id %}">RATE NOW</a></button>
+
+        {% endfor %}
+    </div>
+    <a href="{% url 'image-upload' %}">uploda</a>
+{% endblock content %}
